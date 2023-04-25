@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios"
-import { IComputer } from "../src/models/IComputer"
+import { IComputer, ICreatedComputer, IUpdateComputer } from "../src/models/IComputer"
 
 
 const api = axios.create({
@@ -20,5 +20,18 @@ const api = axios.create({
     }
 
 
+    export const  deleteById = async(id: number): Promise<IComputer>  =>{
+        const response: AxiosResponse<IComputer> = await api.delete(`/computers/${id}`);
+        return response.data;
+    }
 
 
+
+export const create = async(data:ICreatedComputer): Promise<ICreatedComputer> =>{
+ return  api.post(`/computers`, data)
+}
+
+
+export const update = async(id:number ,data:IUpdateComputer) =>{
+    return  api.put(`/computers/${id}`, data)
+   }

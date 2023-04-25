@@ -6,3 +6,18 @@ export interface IComputer{
     processor:string;
     price:number;
 }
+
+
+export interface ICreatedComputer {
+ data:IComputer
+
+}
+
+
+
+
+export interface IUpdateComputer {
+    data:IComputer
+   
+   }
+   
