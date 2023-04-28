@@ -13,9 +13,6 @@ export interface ICreatedComputer {
 
 }
 
-
-
-
 export interface IUpdateComputer {
     data:IComputer
    

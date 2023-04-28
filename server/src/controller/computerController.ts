@@ -3,7 +3,7 @@ import  * as data from "../../strapisource/computer.api"
 
 
 
-    export const  getAllComputer = async(req: Request, res: Response) =>{
+    export const  getAllComputers = async(req: Request, res: Response) =>{
 
         try{
             const computers = await data.getAll();
@@ -81,11 +81,11 @@ import  * as data from "../../strapisource/computer.api"
 
             const foundRecord = await data.getById(id)
      
-            if(foundRecord){
+            if(!foundRecord){
             return res.status(404).json({message: `computer  with ${id} not found`})
 
             }else{
-          const record = await data.create({data: foundRecord})
+          const record = await data.create({data: updateObj})
 
            res.status(200).json({ record: record.data ,message: `updated  computer computer with ${id}`})
         }
